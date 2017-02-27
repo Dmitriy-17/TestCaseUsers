@@ -1,0 +1,52 @@
+﻿<md-dialog flex="50">
+    <form name="regForm">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{text.title}}</h2>
+                <span flex></span>
+            </div>
+        </md-toolbar>
+        <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding>
+            <div layout="row" layout-align="space-between">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Имя</label>
+                    <md-icon><i class="material-icons">person</i></md-icon>
+                    <input required name="FirstName" maxlength="20" minlength="3" pattern="^[A-Za-zА-Яа-яЁё]+$" ng-model="user.FirstName" />
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Фамилия</label>
+                    <md-icon><i class="material-icons">person</i></md-icon>
+                    <input required name="LastName" maxlength="20" minlength="3" pattern="^[A-Za-zА-Яа-яЁё]+$"  ng-model="user.LastName" />                    
+                </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-between">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Логин</label>
+                    <md-icon><i class="material-icons">person</i></md-icon>
+                    <input required name="Login" maxlength="20" minlength="4" pattern="^[a-zA-Z._\(0-9)\-]+$"  ng-model="user.Login"  />                  
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Электронная почта</label>
+                    <md-icon><i class="material-icons">email</i></md-icon>
+                    <input type="email" required name="EmailAddress" maxlength="40" minlength="5" ng-model="user.EmailAddress"  /> <!--ng-model="user.EmailAddress"-->                   
+                </md-input-container>
+            </div>
+            <div layout="row" layout-align="space-between">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Номер телефона</label>
+                    <md-icon><i class="material-icons">phone</i></md-icon>
+                    <input input type="tel" required name="PhoneNumber" maxlength="13" minlength="6" pattern="(\+?\d[- .]*){7,13}"  ng-model="user.PhoneNumber">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Домашний адрес</label>
+                    <md-icon><i class="material-icons">person</i></md-icon>
+                    <input required name="HomeAddress" maxlength="40" minlength="5" pattern="^[A-Za-zА-Яа-яЁё.,\(0-9)\-\s]+$"  ng-model="user.HomeAddress" />                    
+                </md-input-container>
+            </div>
+        </md-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()" class="md-raised">Отмена</md-button>
+            <md-button  ng-disabled="regForm.$invalid" ng-click="addNew ?add(user) : update(user)" class="md-raised md-primary">{{text.button}}</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
